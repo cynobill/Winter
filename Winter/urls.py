@@ -15,6 +15,33 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from rest_framework import routers
+from stream_monitor import views
+
+router = routers.DefaultRouter()
+router.register(r'artists', views.ArtistViewSet)
+router.register(r'tracks', views.TrackViewSet)
+router.register(r'releases', views.ReleaseViewSet)
+router.register(r'projects', views.ProjectViewSet)
+router.register(r'targets', views.TargetViewSet)
+router.register(r'sessions', views.SessionViewSet)
+router.register(r'hits', views.HitViewSet)
+
+
+
+
+# Wire up our API using automatic URL routing.
+# Additionally, we include login URLs for the browsable API.
+urlpatterns = [
+    url(r'^', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+]
+
+
+'''
+## music_id config
+
+from django.conf.urls import url, include
+from rest_framework import routers
 from music_id import views
 
 router = routers.DefaultRouter()
@@ -28,7 +55,8 @@ urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
 
-'''
+## original config
+
 from django.conf.urls import url, include
 from django.contrib import admin
 
