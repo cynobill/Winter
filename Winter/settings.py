@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     #'music_id.apps.MusicIdConfig',
     'stream_monitor.apps.StreamMonitorConfig',
     'rest_framework',
+    'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
